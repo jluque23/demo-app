@@ -11,6 +11,7 @@ import { CustomerindexComponent } from './customerindex/customerindex.component'
 import { HeaderComponent } from './helpers/header/header.component';
 import { CustomerformComponent } from './customerindex/customerform/customerform.component';
 import { DependantsComponent } from './dependants/dependants.component';
+import { DependantsformComponent } from './dependants/dependantsform/dependantsform.component';
 
 const routes: Routes = [
   
@@ -18,7 +19,9 @@ const routes: Routes = [
     { path: 'customer', component: CustomerindexComponent},
     { path: 'customer/form', component: CustomerformComponent},
     { path: 'customer/form/:id', component: CustomerformComponent},
-    { path: 'dependant/:id', component: DependantsComponent}
+    { path: 'dependant/:id', component: DependantsComponent},
+    { path: 'newdependant/:id', component: DependantsformComponent},
+    { path: "dependant/form/:id", component: DependantsformComponent}
   
 ];
 
@@ -28,7 +31,8 @@ const routes: Routes = [
     HeaderComponent,
     CustomerindexComponent,
     CustomerformComponent,
-    DependantsComponent
+    DependantsComponent,
+    DependantsformComponent
   ],
   imports: [
     BrowserModule,

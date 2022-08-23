@@ -1,0 +1,59 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ title }}</div>
+    <div class="card-body">
+
+        <form>
+            <div class="form-group row">
+                <label for="firstName" class="col-form-label col-sm-2">First name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.firstName" name="firstName">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="lastName" class="col-form-label col-sm-2">Last name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.lastName" name="lastName">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="address" class="col-form-label col-sm-2">address</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.address" name="address">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-form-label col-sm-2">city</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.city" name="city">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="country" class="col-form-label col-sm-2">country</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.country" name="country">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="relatioToCostumer" class="col-form-label col-sm-2">city</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.relatioToCostumer" name="relatioToCostumer">
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button" (click)='create()'
+                        *ngIf="!dependant.id else elseBlock">Create</button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)='update()'>Edit</button>
+                    </ng-template>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

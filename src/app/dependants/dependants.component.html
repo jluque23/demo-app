@@ -1,1 +1,38 @@
-<p>dependants works!</p>
+<div class="card-header">Dependants</div>
+<div class="card-body text-primary">
+  <h5 class="card-title">List of Dependants</h5>
+  <div class="my-2 text-left">
+    <button class="btn btn-rounded btn-primary" type="button" routerLink="/newdependant/{{customerId}}">
+      Add Dependant
+    </button>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Country</th>
+        <th>Gender</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dependant of dependants">
+        <td>{{ dependant.id }}</td>
+        <td>{{ dependant.firstName }}</td>
+        <td>{{ dependant.lastName }}</td>
+        <td>{{ dependant.address }}</td>        
+        <td>{{ dependant.country }}</td>
+        <td>{{ dependant.gender }}</td>
+        <td>
+            <button type="button" name="editar" [routerLink]="['/dependant/form', dependant.id]" class="btn btn-primary btn-sm">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

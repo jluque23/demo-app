@@ -1,3 +1,5 @@
+import { Customer } from "./Customer";
+
 export class Dependant{
     id: number;
     address: string;
@@ -9,5 +11,5 @@ export class Dependant{
     lastName: string;
     relatioToCostumer: string;
     updatedAt: string;
-    customerId: number;
+    customer: Customer = new Customer();
 }
