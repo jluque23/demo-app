@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CustomerService } from '../helpers/service/customer.service';
+import { Customer } from '../models/Customer';
 
 @Component({
   selector: 'app-customerindex',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerindexComponent implements OnInit {
 
-  constructor() { }
+  public customers: Customer[];
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+  this.customerService.getCustomers().subscribe(
+    customers => this.customers = customers   
+    );
+
+    console.log(this.customers);
   }
+
 
 }

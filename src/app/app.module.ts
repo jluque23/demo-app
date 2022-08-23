@@ -9,17 +9,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerindexComponent } from './customerindex/customerindex.component';
 import { HeaderComponent } from './helpers/header/header.component';
+import { CustomerformComponent } from './customerindex/customerform/customerform.component';
+import { DependantsComponent } from './dependants/dependants.component';
 
 const routes: Routes = [
   
-    { path: '', component: CustomerindexComponent}
+    { path: '', component: CustomerindexComponent},
+    { path: 'customer', component: CustomerindexComponent},
+    { path: 'customer/form', component: CustomerformComponent},
+    { path: 'customer/form/:id', component: CustomerformComponent},
+    { path: 'dependant/:id', component: DependantsComponent}
   
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CustomerindexComponent,
+    CustomerformComponent,
+    DependantsComponent
   ],
   imports: [
     BrowserModule,
