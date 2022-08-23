@@ -9,7 +9,7 @@ export class Dependant{
     firstName: string;
     gender: string;
     lastName: string;
-    relatioToCostumer: string;
+    relationToCostumer: string;
     updatedAt: string;
     customer: Customer = new Customer();
 }

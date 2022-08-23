@@ -1,3 +1,7 @@
+<div class="form-group">
+    <button class="btn btn-danger" role="button" routerLink="/dependant/{{this.dependant.customer.id}}">Back</button>
+</div>
+
 <div class="card bg-dark text-white">
     <div class="card-header">{{ title }}</div>
     <div class="card-body">
@@ -36,9 +40,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="relatioToCostumer" class="col-form-label col-sm-2">city</label>
+                <label for="relationToCostumer" class="col-form-label col-sm-2">Relationship to costumer</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.relatioToCostumer" name="relatioToCostumer">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.relationToCostumer" name="relationToCostumer">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-form-label col-sm-2">gender</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.gender" name="gender">
                 </div>
             </div>
              
