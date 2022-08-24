@@ -6,64 +6,105 @@
     <div class="card-header">{{ title }}</div>
     <div class="card-body">
 
-        <form>
+        <form #customerForm="ngForm">
             <div class="form-group row">
                 <label for="firstName" class="col-form-label col-sm-2">First name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.firstName" name="firstName">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.firstName" name="firstName" required #firstName="ngModel">
+                    <div class="alert alert-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                        <div *ngIf="firstName.errors?.['required']">
+                            FirstName required
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="lastName" class="col-form-label col-sm-2">Last name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.lastName" name="lastName">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.lastName" name="lastName" required #lastName="ngModel">
+                    <div class="alert alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                        <div *ngIf="lastName.errors?.['required']">
+                            LastName required
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="address" class="col-form-label col-sm-2">address</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.address" name="address">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.address" name="address" required #address="ngModel">
+                    <div class="alert alert-danger" *ngIf="address.invalid && (address.dirty || address.touched)">
+                        <div *ngIf="address.errors?.['required']">
+                            address required
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="city" class="col-form-label col-sm-2">city</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.city" name="city">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.city" name="city" required #city="ngModel">
+                    <div class="alert alert-danger" *ngIf="city.invalid && (city.dirty || city.touched)">
+                        <div *ngIf="city.errors?.['required']">
+                            city required
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="country" class="col-form-label col-sm-2">country</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.country" name="country">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.country" name="country" required #country="ngModel">
+                    <div class="alert alert-danger" *ngIf="country.invalid && (country.dirty || country.touched)">
+                        <div *ngIf="country.errors?.['required']">
+                            country required
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="relationToCostumer" class="col-form-label col-sm-2">Relationship to costumer</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.relationToCostumer" name="relationToCostumer">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.relationToCostumer" name="relationToCostumer" required #relationToCostumer="ngModel">
+                    <div class="alert alert-danger" *ngIf="relationToCostumer.invalid && (relationToCostumer.dirty || relationToCostumer.touched)">
+                        <div *ngIf="relationToCostumer.errors?.['required']">
+                            relationToCostumer required
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="gender" class="col-form-label col-sm-2">gender</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.gender" name="gender">
+                    <input type="text" class="form-control" [(ngModel)]="dependant.gender" name="gender" required #gender="ngModel">
+                    <div class="alert alert-danger" *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+                        <div *ngIf="gender.errors?.['required']">
+                            gender required
+                        </div>
+                    </div>
                 </div>
             </div>
              
             <div class="form-group row">
                 <div class="col-sm-6">
                     <button class="btn btn-primary" role="button" (click)='create()'
-                        *ngIf="!dependant.id else elseBlock">Create</button>
+                        *ngIf="!dependant.id else elseBlock" [disabled]="!customerForm.form.valid">Create</button>
 
                     <ng-template #elseBlock>
-                        <button class="btn btn-primary" role="button" (click)='update()'>Edit</button>
+                        <button class="btn btn-primary" role="button" (click)='update()' [disabled]="!customerForm.form.valid">Edit</button>
                     </ng-template>
                 </div>
             </div>
-
         </form>
-
     </div>
 </div>
+
+        
+
+    

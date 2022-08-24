@@ -25,14 +25,18 @@ export class DependantsformComponent implements OnInit {
     
     console.log(this.dependant);
     this.dependantService.create(this.dependant)
-    .subscribe(dependant => {
+    .subscribe(response => {
       this.router.navigate(['/dependant', +this.dependant.customer.id])
-      swal('New Dependant', `Dependant ${this.dependant.firstName} added succesfully!`, 'success')
+      swal('New Dependant', `Dependant ${response.dependant.firstName} added succesfully!`, 'success')
     })
   }
 
-  update(): void{
-    console.log(this.dependant);
+  update(): void {
+    this.dependantService.update(this.dependant)
+    .subscribe( response => {
+      this.router.navigate(['/dependant', +this.dependant.customer.id])
+      swal('Dependant Updated', `Dependant ${response.dependant.firstName} updated succesfully!`, 'success')
+    })
   }
 
   loadDependant(): void{

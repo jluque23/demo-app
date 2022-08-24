@@ -33,17 +33,18 @@ export class CustomerformComponent implements OnInit {
 
   create(): void {
     this.customerService.create(this.customer)
-    .subscribe(customer => {
+    .subscribe(response => {
       this.router.navigate(['/customer'])
-      swal('New Customer', `Customer ${customer.firstName} created succesfully!`, 'success')
+      console.log(response);
+      swal('New Customer', `Customer ${response.customer.firstName} created succesfully!`, 'success')
     })
   }
 
   update(): void {
     this.customerService.update(this.customer)
-    .subscribe( customer => {
+    .subscribe( response => {
       this.router.navigate(['/customer'])
-      swal('Customer Updated', `Customer ${customer} updated succesfully!`, 'success')
+      swal('Customer Updated', `Customer ${response.customer.firstName} updated succesfully!`, 'success')
     })
   }
 
