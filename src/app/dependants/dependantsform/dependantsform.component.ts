@@ -12,16 +12,17 @@ import swal from 'sweetalert2';
 export class DependantsformComponent implements OnInit {
   
   public dependant: Dependant = new Dependant();
+  public customerId: String;
   title = "Create a dependant";
 
   constructor(private activatedRoute: ActivatedRoute, private dependantService: DependantService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.dependant);
+    this.loadDependant();
   }
 
   create(): void {
-    this.loadCustomerId();
+    
     console.log(this.dependant);
     this.dependantService.create(this.dependant)
     .subscribe(dependant => {
@@ -31,14 +32,16 @@ export class DependantsformComponent implements OnInit {
   }
 
   update(): void{
-
+    console.log(this.dependant);
   }
 
-  loadCustomerId(): void{
+  loadDependant(): void{
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id'];
-      if(id){
-        this.dependant.customer.id = id;
+      this.customerId = params['customerid'];
+      let dependantId = params['dependantid'];
+      
+      if(dependantId){
+        this.dependantService.getDependant(dependantId).subscribe( (dependant) => this.dependant = dependant)
       }
     })
   }

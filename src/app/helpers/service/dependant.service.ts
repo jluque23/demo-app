@@ -16,4 +16,8 @@ export class DependantService {
   create(dependant: Dependant) : Observable<Dependant> {
     return this.http.post<Dependant>(this.urlEndPoint, dependant, {headers: this.httpHeaders})
   }
+
+  getDependant(id: any): Observable<Dependant>{
+    return this.http.get<Dependant>(`${this.urlEndPoint}/${id}`)
+  }
 }

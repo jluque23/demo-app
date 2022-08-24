@@ -20,8 +20,8 @@ const routes: Routes = [
     { path: 'customer/form', component: CustomerformComponent},
     { path: 'customer/form/:id', component: CustomerformComponent},
     { path: 'dependant/:id', component: DependantsComponent},
-    { path: 'newdependant/:id', component: DependantsformComponent},
-    { path: "dependant/form/:id", component: DependantsformComponent}
+    { path: 'newdependant/:customerid', component: DependantsformComponent},
+    { path: "dependant/form/:customerid/:dependantid", component: DependantsformComponent}
   
 ];
 

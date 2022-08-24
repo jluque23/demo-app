@@ -34,7 +34,7 @@
         <td>{{ dependant.gender }}</td>
         <td>{{ dependant.relationToCostumer }}</td>
         <td>
-            <button type="button" name="editar" [routerLink]="['/dependant/form', dependant.id]" class="btn btn-primary btn-sm">Edit</button>
+            <button type="button" name="editar" routerLink="/dependant/form/{{customerId}}/{{dependant.id}}" class="btn btn-primary btn-sm">Edit</button>
         </td>
         <td>
             <button type="button" name="editar" class="btn btn-danger btn-sm">Delete</button>
