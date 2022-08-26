@@ -12,7 +12,7 @@ import swal from 'sweetalert2';
 export class DependantsformComponent implements OnInit {
   
   public dependant: Dependant = new Dependant();
-  public customerId: String;
+  public customerId: string;
   title = "Create a dependant";
 
   constructor(private activatedRoute: ActivatedRoute, private dependantService: DependantService, private router: Router) { }
@@ -22,7 +22,6 @@ export class DependantsformComponent implements OnInit {
   }
 
   create(): void {
-    
     console.log(this.dependant);
     this.dependantService.create(this.dependant)
     .subscribe(response => {
@@ -43,6 +42,7 @@ export class DependantsformComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.customerId = params['customerid'];
       let dependantId = params['dependantid'];
+      this.dependant.customer.id = parseInt(this.customerId);
       
       if(dependantId){
         this.dependantService.getDependant(dependantId).subscribe( (dependant) => this.dependant = dependant)
