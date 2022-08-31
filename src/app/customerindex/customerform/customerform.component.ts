@@ -26,6 +26,7 @@ export class CustomerformComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if(id){
+        this.title = "Edit a Customer";
         this.customerService.getCustomer(id).subscribe( (customer) => this.customer = customer)
       }
     })

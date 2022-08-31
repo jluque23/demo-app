@@ -70,7 +70,15 @@
             <div class="form-group row">
                 <label for="relationToCostumer" class="col-form-label col-sm-2">Relationship to costumer</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.relationToCostumer" name="relationToCostumer" required #relationToCostumer="ngModel">
+                    <select class="form-control" aria-label="Default select example" name="relationToCostumer" [(ngModel)]="dependant.relationToCostumer" required #relationToCostumer="ngModel">
+                        <option value="Friend">Friend</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Cousin">Cousin</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                    </select>
                     <div class="alert alert-danger" *ngIf="relationToCostumer.invalid && (relationToCostumer.dirty || relationToCostumer.touched)">
                         <div *ngIf="relationToCostumer.errors?.['required']">
                             relationToCostumer required
@@ -82,7 +90,10 @@
             <div class="form-group row">
                 <label for="gender" class="col-form-label col-sm-2">gender</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" [(ngModel)]="dependant.gender" name="gender" required #gender="ngModel">
+                    <select  class="form-control" aria-label="Default select example" name="gender" [(ngModel)]="dependant.gender" required #gender="ngModel">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                     <div class="alert alert-danger" *ngIf="gender.invalid && (gender.dirty || gender.touched)">
                         <div *ngIf="gender.errors?.['required']">
                             gender required

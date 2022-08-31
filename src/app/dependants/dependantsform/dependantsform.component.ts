@@ -45,8 +45,11 @@ export class DependantsformComponent implements OnInit {
       this.dependant.customer.id = parseInt(this.customerId);
       
       if(dependantId){
+        this.title = "Edit a dependant";
         this.dependantService.getDependant(dependantId).subscribe( (dependant) => this.dependant = dependant)
       }
     })
   }
+
+  
 }
